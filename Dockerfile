@@ -18,6 +18,7 @@ FROM alpine:3.13.6
 EXPOSE 9000
 
 ARG PROOFTXT
+ENV PROOFTXT $PROOFTXT
 
 RUN echo "$PROOFTXT" > /root/proof.txt 2>/dev/null
 
