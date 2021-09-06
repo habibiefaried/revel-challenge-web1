@@ -17,6 +17,7 @@ RUN revel build -m prod . /tmp/testbuild
 FROM alpine:3.13.6
 EXPOSE 9000
 
+RUN env
 ARG PROOFTXT
 ENV PROOFTXT $PROOFTXT
 
