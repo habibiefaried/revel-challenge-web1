@@ -41,3 +41,8 @@ The directory structure of a generated Revel application:
 * The [Revel sample apps](http://revel.github.io/examples/index.html).
 * The [API documentation](https://godoc.org/github.com/revel/revel).
 
+## Run compose
+
+```
+docker-compose build && docker-compose up -d
+```

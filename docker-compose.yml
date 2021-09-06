@@ -1,0 +1,10 @@
+version: '3'
+services:
+ web:
+   build:
+     context: .
+     dockerfile: Dockerfile
+     args:
+      - PROOFTXT=${PROOFTXT}
+   ports:
+    - "9000:9000"
