@@ -124,7 +124,7 @@ func Register() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					13: []string{ 
+					15: []string{ 
 						"greeting",
 					},
 				},

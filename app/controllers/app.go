@@ -2,6 +2,8 @@ package controllers
 
 import (
 	"github.com/revel/revel"
+	"io/ioutil"
+	"strings"
 )
 
 type App struct {
@@ -34,9 +36,21 @@ func (c App) GitHead() revel.Result {
 
 func (c App) Include() revel.Result {
 	tfile := c.Params.Query.Get("file")
+	log := c.Log.New("include",tfile)
 	if (tfile == ""){
-		return c.Redirect("/include?file=1.php")
+		return c.Redirect("/include?file=src/revel-challenge-web1/public/index.php")
 	} else {
-		return c.RenderText(tfile)
+		log.Debug("include", tfile)
+		if (strings.Contains(tfile, "php")) {
+			b, err := ioutil.ReadFile(tfile)
+			if err != nil {
+				log.Errorf("Failed to load :%s",err.Error())
+				return c.RenderText(err.Error())
+			} else {
+				return c.RenderText(string(b))
+			}
+		} else {
+			return c.RenderText("Hanya boleh file php")
+		}
 	}
 }
