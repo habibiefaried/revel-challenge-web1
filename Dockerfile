@@ -17,6 +17,9 @@ RUN revel build -m prod . /tmp/testbuild
 FROM alpine:3.13.6
 EXPOSE 9000
 
+RUN mkdir -p /var/lib/php/session
+RUN mkdir -p /usr/src/php
+
 RUN env
 ARG PROOFTXT
 ENV PROOFTXT $PROOFTXT
